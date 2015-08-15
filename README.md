@@ -2,7 +2,6 @@
 
 *Prerequisites*
 USB drive (at least 4 GB)
-USB mouse (just until you load the touchpad drivers)
 
 *Prep Work*
 Download the latest slackware64-current iso from http://taper.alienbase.nl/mirrors/slackware/slackware64-current-iso/
@@ -37,7 +36,46 @@ Now we're going to install slackware. To do so, follow these steps:
 // you should be instaling slackware now like normal
 
 6. When completed, remove the USB drive
-7. Plug in the USB mouse and reboot
+7. Reboot
 8. Press CTRL+L again during boot
 9. If you have an sd card inserted, press Esc and choose item 2
 10. You're now booted into Slackware64!
+
+*Compiling Slackware Kernel*
+For everything to work correctly, we need to compile the 4.1 series kernel. I used 4.1.5 and will use that in this guide.
+
+Now that you are booted into slackware, we need to pull down the latest kernel. Now run these commands:
+
+# cd /usr/src/
+# wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.5.tar.xz
+# tar -xf linux-4.1.5.tar.xz
+# rm linux
+# ln -s linux-4.1.5 linux
+
+Now copy the config-samus-4.1.5 file from the kernel directory of my repo to /usr/src/linux/.config
+
+Back to running commands in the same terminal as a minute ago (it will take awhile while running the make commands):
+
+# cd linux
+# make bzImage
+# make modules
+# make modules_install
+# cp System.map /boot/System.map-samus-4.1.5
+# cp .config /boot/config-samus-4.1.5
+# cp arch/x86_64/boot/bzImage /boot/vmlinuz-samus-4.1.5
+# rm /boot/System.map
+# rm /boot/config
+# rm /boot/vmlinuz
+# ln -s /boot/System.map-samus-4.1.5 /boot/System.map
+# ln -s /boot/config-samus-4.1.5 /boot/config
+# ln -s /boot/vmlinuz-samus-4.1.5 /boot/vmlinuz
+# lilo
+
+Now follow these steps:
+
+1. Reboot
+2. Press CTRL+L again during boot
+3. If you have an sd card inserted, press Esc and choose item 2
+4. You're now running the the 4.1.5 kernel with working drivers!
+
+You should notice that the touchpad and touchscreen both work now when you go into X.
