@@ -62,11 +62,13 @@ $ rm linux
 
 $ ln -s linux-4.1.5 linux
 
-Now copy the config-samus-4.1.5 file from the kernel directory of my repo to /usr/src/linux/.config
+Now copy the config-samus-4.1.5 file from the kernel directory of my repo to /usr/src/linux/.config and copy the sound.patch file to /usr/src/linux/sound.patch
 
 Back to running commands in the same terminal as a minute ago (it will take awhile while running the make commands):
 
 $ cd linux
+
+$ patch -p1 < sound.patch
 
 $ make bzImage
 
@@ -107,9 +109,15 @@ You should notice that the touchpad and touchscreen both work now when you go in
 
 You'll probably notice that some things seem a little off. I'm including some configuration files that will get the Chromebook Pixel running Slackware properly!
 
-Firstly, copy the two files in the home directory of my repo to your user's home directory. This will give you key mappings for Home, End, Delete, Page Up, and Page Down, as well as set the proper DPI for X.
+Copy the two files in the home directory of my repo to your user's home directory. This will give you key mappings for Home, End, Delete, Page Up, and Page Down, as well as set the proper DPI for X.
 
-Secondly, copy the entire structure of the etc directory from my repo to your /etc/ directory. This will fix things like suspend, touchpad quirkiness, power management, and laptop lid shut detection.
+Now copy everything under the etc directory from my repo to your /etc/ directory. This will fix things like suspend, touchpad quirkiness, power management, and laptop lid shut detection.
+
+Next copy everything under the lib directory from my repo to your /lib/ directory. This gives us the needed firmware fixes for sound.
+
+Finally, run the following command from the base directory of my repo:
+
+$ ALSA_CONFIG_UCM=ucm/ alsaucm -c bdw-rt5677 set _verb HiFi
 
 Now reboot and enjoy Slackware on your Chromebook Pixel 2015!!!
 
