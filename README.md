@@ -1,16 +1,16 @@
-**Slackware64 on the Chromebook Pixel 2015**
+#Slackware64 on the Chromebook Pixel 2015#
 
-*Prerequisites*
+**Prerequisites**
 USB drive (at least 4 GB)
 
-*Prep Work*
+**Prep Work**
 Download the latest slackware64-current iso from http://taper.alienbase.nl/mirrors/slackware/slackware64-current-iso/
 
 Flash the iso to your usb drive (assuming it's sdb, you may need to change it)
 
-# dd if=slackware64-current-install-dvd.iso of=/dev/sdb
+$ dd if=slackware64-current-install-dvd.iso of=/dev/sdb
 
-*Dev Mode on Pixel*
+**Dev Mode on Pixel**
 To install slackware, you'll need to put your Pixel in dev mode. To do so, follow these steps:
 
 1. Power off
@@ -24,7 +24,7 @@ $ sudo bash
 $ crossystem dev_boot_usb=1 dev_boot_legacy=1
 7. Power off
 
-*Install Slackware*
+**Install Slackware**
 Now we're going to install slackware. To do so, follow these steps:
 
 1. Plug in your USB drive that you flashed the slackware iso to and power on the Pixel
@@ -41,35 +41,35 @@ Now we're going to install slackware. To do so, follow these steps:
 9. If you have an sd card inserted, press Esc and choose item 2
 10. You're now booted into Slackware64!
 
-*Compiling Slackware Kernel*
+**Compiling Slackware Kernel**
 For everything to work correctly, we need to compile the 4.1 series kernel. I used 4.1.5 and will use that in this guide.
 
 Now that you are booted into slackware, we need to pull down the latest kernel. Now run these commands:
 
-# cd /usr/src/
-# wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.5.tar.xz
-# tar -xf linux-4.1.5.tar.xz
-# rm linux
-# ln -s linux-4.1.5 linux
+$ cd /usr/src/
+$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.5.tar.xz
+$ tar -xf linux-4.1.5.tar.xz
+$ rm linux
+$ ln -s linux-4.1.5 linux
 
 Now copy the config-samus-4.1.5 file from the kernel directory of my repo to /usr/src/linux/.config
 
 Back to running commands in the same terminal as a minute ago (it will take awhile while running the make commands):
 
-# cd linux
-# make bzImage
-# make modules
-# make modules_install
-# cp System.map /boot/System.map-samus-4.1.5
-# cp .config /boot/config-samus-4.1.5
-# cp arch/x86_64/boot/bzImage /boot/vmlinuz-samus-4.1.5
-# rm /boot/System.map
-# rm /boot/config
-# rm /boot/vmlinuz
-# ln -s /boot/System.map-samus-4.1.5 /boot/System.map
-# ln -s /boot/config-samus-4.1.5 /boot/config
-# ln -s /boot/vmlinuz-samus-4.1.5 /boot/vmlinuz
-# lilo
+$ cd linux
+$ make bzImage
+$ make modules
+$ make modules_install
+$ cp System.map /boot/System.map-samus-4.1.5
+$ cp .config /boot/config-samus-4.1.5
+$ cp arch/x86_64/boot/bzImage /boot/vmlinuz-samus-4.1.5
+$ rm /boot/System.map
+$ rm /boot/config
+$ rm /boot/vmlinuz
+$ ln -s /boot/System.map-samus-4.1.5 /boot/System.map
+$ ln -s /boot/config-samus-4.1.5 /boot/config
+$ ln -s /boot/vmlinuz-samus-4.1.5 /boot/vmlinuz
+$ lilo
 
 Now follow these steps:
 
@@ -80,7 +80,7 @@ Now follow these steps:
 
 You should notice that the touchpad and touchscreen both work now when you go into X.
 
-*Configuring Slackware*
+**Configuring Slackware**
 You'll probably notice that some things seem a little off. I'm including some configuration files that will get the Chromebook Pixel running Slackware properly!
 
 Firstly, copy the two files in the home directory of my repo to your user's home directory. This will give you key mappings for Home, End, Delete, Page Up, and Page Down, as well as set the proper DPI for X.
@@ -89,7 +89,7 @@ Secondly, copy the entire structure of the etc directory from my repo to your /e
 
 Now reboot and enjoy Slackware on your Chromebook Pixel 2015!!!
 
-*Thanks!*
+**Thanks!**
 
 If you want to show me some thanks, feel free to send me some bitcoin at the following address!
 
