@@ -1,0 +1,14 @@
+"xvkbd -xsendevent -text '\[Home]'"
+Alt + Left
+
+"xvkbd -xsendevent -text '\[End]'"
+Alt + Right
+
+"xvkbd -xsendevent -text '\[Delete]'"
+Alt + BackSpace
+
+"xvkbd -xsendevent -text '\[Page_Up]'"
+Alt + Up
+
+"xvkbd -xsendevent -text '\[Page_Down]'"
+Alt + Down

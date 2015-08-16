@@ -79,3 +79,18 @@ Now follow these steps:
 4. You're now running the the 4.1.5 kernel with working drivers!
 
 You should notice that the touchpad and touchscreen both work now when you go into X.
+
+*Configuring Slackware*
+You'll probably notice that some things seem a little off. I'm including some configuration files that will get the Chromebook Pixel running Slackware properly!
+
+Firstly, copy the two files in the home directory of my repo to your user's home directory. This will give you key mappings for Home, End, Delete, Page Up, and Page Down, as well as set the proper DPI for X.
+
+Secondly, copy the entire structure of the etc directory from my repo to your /etc/ directory. This will fix things like suspend, touchpad quirkiness, power management, and laptop lid shut detection.
+
+Now reboot and enjoy Slackware on your Chromebook Pixel 2015!!!
+
+*Thanks!*
+
+If you want to show me some thanks, feel free to send me some bitcoin at the following address!
+
+1EEmDad6ZjKd5iW3BcDQCr4Dx7SAz21WPq

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SYSFILE=/sys/class/backlight/intel_backlight/brightness
+
+case $1 in
+  resume)
+    echo $(cat $SYSFILE) > $SYSFILE
+    ;;
+esac
