@@ -29,7 +29,7 @@ $ sudo bash
 
 $ crossystem dev_boot_usb=1 dev_boot_legacy=1
 
-7. Power off
+You can now Power off as we are ready to install slackware!
 
 **Install Slackware**
 
@@ -40,9 +40,6 @@ Now we're going to install slackware. To do so, follow these steps:
 3. Choose 1 to boot from the USB drive
 4. At the slackware boot prompt, enter kms.s (this will allow the framebuffer to work properly)
 5. Press enter to boot, and then follow the normal slackware install instructions.
-
-// you should be instaling slackware now like normal
-
 6. When completed, remove the USB drive
 7. Reboot
 8. Press CTRL+L again during boot
