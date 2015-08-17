@@ -1,9 +1,14 @@
 #!/bin/bash
 
-SYSFILE=/sys/class/backlight/intel_backlight/brightness
+MONFILE=/sys/class/backlight/intel_backlight/brightness
+KEYFILE=/sys/class/leds/chromeos::kbd_backlight/brightness
 
 case $1 in
   resume)
-    echo $(cat $SYSFILE) > $SYSFILE
+    echo $(cat $MONFILE) > $MONFILE
+    echo 50 > $KEYFILE
+    ;;
+  suspend)
+    echo 0 > $KEYFILE
     ;;
 esac
