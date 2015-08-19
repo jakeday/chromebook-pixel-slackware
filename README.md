@@ -38,7 +38,7 @@ Now we're going to install slackware. To do so, follow these steps:
 1. Plug in your USB drive that you flashed the slackware iso to and power on the Pixel
 2. Instead of pressing CTRL+D, this time we will press CTRL+L and then Esc
 3. Choose 1 to boot from the USB drive
-4. At the slackware boot prompt, enter kms.s (this will allow the framebuffer to work properly)
+4. At the slackware boot prompt, enter "huge.s vga=0x340" (without quotes)
 5. Press enter to boot, and then follow the normal slackware install instructions.
 6. When completed, remove the USB drive
 7. Reboot
