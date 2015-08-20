@@ -46,6 +46,12 @@ Now we're going to install slackware. To do so, follow these steps:
 9. If you have an sd card inserted, press Esc and choose item 2
 10. You're now booted into Slackware64!
 
+Just to note, it might be a good idea to put the following into the append section of your lilo.conf file:
+
+libata.force=noncq
+
+This will disable NCQ on the drive and prevent possible lockups.
+
 **Compiling Slackware Kernel**
 
 For everything to work correctly, we need to compile the 4.1 series kernel. I used 4.1.5 and will use that in this guide.
