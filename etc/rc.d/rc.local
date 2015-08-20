@@ -7,9 +7,6 @@
 # make an /etc/rc.d/rc.local_shutdown script and put those
 # commands in there.
 
-rmmod chromeos_laptop
-modprobe chromeos_laptop
-
 modprobe tpm_tis force=1 interrupts=0
 
 for DEVICE in TPAD TSCR EHC1 EHC2; do 
