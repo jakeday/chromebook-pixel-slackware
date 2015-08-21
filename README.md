@@ -125,6 +125,8 @@ Finally, run the following command from the base directory of my repo:
 
 $ ALSA_CONFIG_UCM=ucm/ alsaucm -c bdw-rt5677 set _verb HiFi
 
+If you want better performance out of your filsystem on the SSD, open /etc/fstab and add discard,noatime to your mount options for your root partition.
+
 Now reboot and enjoy Slackware on your Chromebook Pixel 2015!!!
 
 **Thanks!**
