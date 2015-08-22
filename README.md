@@ -54,21 +54,21 @@ This will disable NCQ on the drive and prevent possible lockups.
 
 **Compiling Slackware Kernel**
 
-For everything to work correctly, we need to compile the 4.1 series kernel. I used 4.1.5 and will use that in this guide.
+For everything to work correctly, we need to compile the 4.1 series kernel. I used 4.1.6 and will use that in this guide.
 
 Now that you are booted into slackware, we need to pull down the latest kernel. Now run these commands:
 
 $ cd /usr/src/
 
-$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.5.tar.xz
+$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.6.tar.xz
 
-$ tar -xf linux-4.1.5.tar.xz
+$ tar -xf linux-4.1.6.tar.xz
 
 $ rm linux
 
-$ ln -s linux-4.1.5 linux
+$ ln -s linux-4.1.6 linux
 
-Now copy the config-samus-4.1.5 file from the kernel directory of my repo to /usr/src/linux/.config and copy the sound.patch file to /usr/src/linux/sound.patch
+Now copy the config-samus-4.1.6 file from the kernel directory of my repo to /usr/src/linux/.config and copy the sound.patch file to /usr/src/linux/sound.patch
 
 Back to running commands in the same terminal as a minute ago (it will take awhile while running the make commands):
 
@@ -82,11 +82,11 @@ $ make modules
 
 $ make modules_install
 
-$ cp System.map /boot/System.map-samus-4.1.5
+$ cp System.map /boot/System.map-samus-4.1.6
 
-$ cp .config /boot/config-samus-4.1.5
+$ cp .config /boot/config-samus-4.1.6
 
-$ cp arch/x86_64/boot/bzImage /boot/vmlinuz-samus-4.1.5
+$ cp arch/x86_64/boot/bzImage /boot/vmlinuz-samus-4.1.6
 
 $ rm /boot/System.map
 
@@ -94,11 +94,11 @@ $ rm /boot/config
 
 $ rm /boot/vmlinuz
 
-$ ln -s /boot/System.map-samus-4.1.5 /boot/System.map
+$ ln -s /boot/System.map-samus-4.1.6 /boot/System.map
 
-$ ln -s /boot/config-samus-4.1.5 /boot/config
+$ ln -s /boot/config-samus-4.1.6 /boot/config
 
-$ ln -s /boot/vmlinuz-samus-4.1.5 /boot/vmlinuz
+$ ln -s /boot/vmlinuz-samus-4.1.6 /boot/vmlinuz
 
 $ lilo
 
@@ -107,7 +107,7 @@ Now follow these steps:
 1. Reboot
 2. Press CTRL+L again during boot
 3. If you have an sd card inserted, press Esc and choose item 2
-4. You're now running the the 4.1.5 kernel with working drivers!
+4. You're now running the the 4.1.6 kernel with working drivers!
 
 You should notice that the touchpad and touchscreen both work now when you go into X.
 
