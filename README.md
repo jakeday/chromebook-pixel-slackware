@@ -117,6 +117,8 @@ You'll probably notice that some things seem a little off. I'm including some co
 
 Copy the two files in the home directory of my repo to your user's home directory. This will give you key mappings for Home, End, Delete, Page Up, and Page Down, as well as set the proper DPI for X.
 
+You'll want to install the following packages for the key mappings to work:  xbindkeys, amixer, xorg-xbacklight and xvkbd
+
 Now copy everything under the etc directory from my repo to your /etc/ directory. This will fix things like suspend, touchpad quirkiness, power management, and laptop lid shut detection.
 
 Next copy everything under the lib directory from my repo to your /lib/ directory. This gives us the needed firmware fixes for sound.
