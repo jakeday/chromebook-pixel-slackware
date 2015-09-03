@@ -123,9 +123,11 @@ Now copy everything under the etc directory from my repo to your /etc/ directory
 
 Next copy everything under the lib directory from my repo to your /lib/ directory. This gives us the needed firmware fixes for sound.
 
+Next copy everything under the usr directory from my repo to your /usr/ directory. This gives us the needed configs for sound.
+
 Finally, run the following command from the base directory of my repo:
 
-$ ALSA_CONFIG_UCM=ucm/ alsaucm -c bdw-rt5677 set _verb HiFi
+$ alsaucm -c bdw-rt5677 set _verb HiFi
 
 If you want better performance out of your filsystem on the SSD, open /etc/fstab and add discard,noatime to your mount options for your root partition.
 
